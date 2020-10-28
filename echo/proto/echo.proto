@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// パッケージ名。異なるパッケージ間ではそれぞれのパッケーにあるメソッド名が被っても問題ない。
+package echo;
+
+// クライアントが送信するメッセージ
+message EchoRequest{
+    string message = 1;
+}
+
+// サーバーが返却するメッセージ
+message EchoResponse{
+    string message = 1;
+}
+// サービス...クライアントとサーバーを接続する
+service EchoService{
+    // rpc メソッド名とすることでprotobufでのメソッドとして定義する。
+    // この場合、EchoRequestを引数にとり、EchoResponseを返す、Echoメソッド。
+    rpc Echo (EchoRequest)
+        returns (EchoResponse);
+}
