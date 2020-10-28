@@ -17,5 +17,5 @@ service EchoService{
     // rpc メソッド名とすることでprotobufでのメソッドとして定義する。
     // この場合、EchoRequestを引数にとり、EchoResponseを返す、Echoメソッド。
     rpc Echo (EchoRequest)
-        returns (EchoResponse)
+        returns (EchoResponse);
 }
